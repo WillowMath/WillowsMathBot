@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math Magic with Willow</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #fff8f0;
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            color: #ff69b4;
+            animation: sparkle 2s infinite;
+        }
+        @keyframes sparkle {
+            0% {opacity: 1;}
+            50% {opacity: 0.5;}
+            100% {opacity: 1;}
+        }
+        .quiz-section {
+            background-color: #e0f7fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+        }
+        button {
+            background-color: #ffd700;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .progress {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌟 Math Magic with Willow 🌟</h1>
+    <div class="quiz-section" id="quiz">
+        <h2>Let's Play a Math Quiz!</h2>
+        <p id="question">What is 3 + 4?</p>
+        <button onclick="checkAnswer(7)">7</button>
+        <button onclick="checkAnswer(6)">6</button>
+        <button onclick="checkAnswer(8)">8</button>
+        <p id="feedback"></p>
+    </div>
+
+    <div class="quiz-section">
+        <h2>Multiplication Time!</h2>
+        <p id="mult-question">What is 3 × 4?</p>
+        <button onclick="checkMult(12)">12</button>
+        <button onclick="checkMult(9)">9</button>
+        <button onclick="checkMult(15)">15</button>
+        <p id="mult-feedback"></p>
+    </div>
+
+    <div class="quiz-section">
+        <h2>Time Quiz</h2>
+        <p id="time-question">What time is shown: 🕑</p>
+        <button onclick="checkTime('2:00')">2:00</button>
+        <button onclick="checkTime('3:00')">3:00</button>
+        <button onclick="checkTime('1:30')">1:30</button>
+        <p id="time-feedback"></p>
+    </div>
+
+    <div class="quiz-section">
+        <h2>Fractions Game</h2>
+        <p>Which is half of a pie?</p>
+        <button onclick="checkFraction('half')">Half</button>
+        <button onclick="checkFraction('quarter')">Quarter</button>
+        <button onclick="checkFraction('whole')">Whole</button>
+        <p id="fraction-feedback"></p>
+    </div>
+
+    <div class="quiz-section">
+        <h2>Shapes Game</h2>
+        <p>Which one is a triangle?</p>
+        <button onclick="checkShape('triangle')">Triangle</button>
+        <button onclick="checkShape('square')">Square</button>
+        <button onclick="checkShape('circle')">Circle</button>
+        <p id="shape-feedback"></p>
+    </div>
+
+    <div class="progress" id="progress">
+        Progress: 0/5 quizzes completed 🎉
+    </div>
+
+    <script>
+        let completed = 0;
+        function updateProgress() {
+            completed += 1;
+            document.getElementById('progress').innerText = `Progress: ${completed}/5 quizzes completed 🎉`;
+        }
+
+        function checkAnswer(ans) {
+            if (ans === 7) {
+                document.getElementById('feedback').innerText = "Great job, Willow! 🌟";
+                updateProgress();
+            } else {
+                document.getElementById('feedback').innerText = "Oops! Try again!";
+            }
+        }
+
+        function checkMult(ans) {
+            if (ans === 12) {
+                document.getElementById('mult-feedback').innerText = "You're a multiplication star! 🌟";
+                updateProgress();
+            } else {
+                document.getElementById('mult-feedback').innerText = "Almost! Try again!";
+            }
+        }
+
+        function checkTime(ans) {
+            if (ans === '2:00') {
+                document.getElementById('time-feedback').innerText = "Correct! You're great at telling time! ⏰";
+                updateProgress();
+            } else {
+                document.getElementById('time-feedback').innerText = "Hmm, not quite. Try again!";
+            }
+        }
+
+        function checkFraction(ans) {
+            if (ans === 'half') {
+                document.getElementById('fraction-feedback').innerText = "Yummy! That's half a pie! 🥧";
+                updateProgress();
+            } else {
+                document.getElementById('fraction-feedback').innerText = "Not quite! Try again!";
+            }
+        }
+
+        function checkShape(ans) {
+            if (ans === 'triangle') {
+                document.getElementById('shape-feedback').innerText = "That's a triangle! 🎉";
+                updateProgress();
+            } else {
+                document.getElementById('shape-feedback').innerText = "Oops! Try again!";
+            }
+        }
+    </script>
+</body>
+</html>
